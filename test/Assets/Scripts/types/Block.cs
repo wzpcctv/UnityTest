@@ -50,48 +50,48 @@ public class Block
         float xx = obj.x + vec2.x;
         float yy = obj.y + vec2.y;
         bool b = true;
-        for (int i = 0; i < Game.unitsNum; i++)
+        for (int i = Unit.UnitList.Count -1; i>=0; i--)
         {
-            Unit obj2 = Game.units[i];
-            if (this.obj != obj2)
+            Unit unit = Unit.UnitList[i];
+            if (this.obj != unit)
             {
                 //Debug.Log(xx - obj2.x);
                 //Debug.Log(yy - obj2.y);
                 //Debug.Log(width + obj2.block.width);
                 //Debug.Log(higth + obj2.block.higth);
 
-                bool b1 = ((xx - obj2.x) * 2 < width + obj2.block.width);
-                bool b2 = (-(xx - obj2.x) * 2 < (width + obj2.block.width));
+                bool b1 = ((xx - unit.x) * 2 < width + unit.block.width);
+                bool b2 = (-(xx - unit.x) * 2 < (width + unit.block.width));
                 bool b3 = b1 || b2;
                 //Debug.Log(xx);
                 //Debug.Log(obj2.x);
                 //Debug.Log(this.width);
                 //Debug.Log(obj2.block.width);
-                Debug.Log(xx - obj2.x);
-                Debug.Log(width + obj2.block.width);
-                Debug.Log( -(width + obj2.block.width));
+                Debug.Log(xx - unit.x);
+                Debug.Log(width + unit.block.width);
+                Debug.Log( -(width + unit.block.width));
                 Debug.Log(b1);
                 Debug.Log(b2);
                 Debug.Log(b3);
 
 
-                if (obj.blockable == false || obj2.blockable == false)
+                if (obj.blockable == false || unit.blockable == false)
                 {
 
                 }
                 else if (
                     (
                            (
-                               ((xx - obj2.x) * 2 < width + obj2.block.width)
+                               ((xx - unit.x) * 2 < width + unit.block.width)
                                &&
-                               (-(xx - obj2.x) * 2 < (width + obj2.block.width))
+                               (-(xx - unit.x) * 2 < (width + unit.block.width))
                            )
                        )
                    &&
                        (
-                           ((yy - obj2.y) * 2 < higth + obj2.block.higth)
+                           ((yy - unit.y) * 2 < higth + unit.block.higth)
                            ||
-                           (-(yy - obj2.y) * 2 < (higth + obj2.block.higth))
+                           (-(yy - unit.y) * 2 < (higth + unit.block.higth))
                        )
                     )
                 {

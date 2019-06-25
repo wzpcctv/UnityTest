@@ -1,0 +1,20 @@
+{
+  "UnitData": [
+    {
+      "name": "空",
+      "hp": 1
+    },
+    {
+      "name": "农民",
+      "hp": 2,
+      "drop": [ "装备1", "装备2" ],
+      "spritePath": "units\\body"
+    },
+    {
+      "name": "脚男",
+      "hp": 5,
+      "drop": [ "装备1" ],
+      "spritePath": "units\\body2"
+    }
+  ]
+}

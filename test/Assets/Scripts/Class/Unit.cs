@@ -13,35 +13,31 @@ public class Unit : F2
     {
         Debug.Log("构造函数 - 单位创建 - " + name);
 
+        int id = Table.getUnitId(name);
+
         this.gameObj = new GameObject();
 
         this.name = name;
         this.x = x;
         this.y = y;
 
-        Sprite sprite;
+        Sprite sprite = Resources.Load(Table.UnitData[id].spritePath, typeof(Sprite)) as Sprite;
+        Debug.Log("spritePath " + name);
+
         if (name == "农民")
         {
-             sprite = Resources.Load("units\\body", typeof(Sprite)) as Sprite;
-            action = new Action(this,1f, 0);
-        }else if (name == "脚男")
-        {
-            sprite = Resources.Load("units\\body2", typeof(Sprite)) as Sprite;
-            action = new Action(this,-1f, 0);
+            this.action = new Action(this, 1f, 0);
         }
         else
         {
-            sprite = Resources.Load("units\\body0", typeof(Sprite)) as Sprite;
+            this.action = new Action(this, -1f, 0);
         }
 
         this.effect = new Effect(this, sprite, 0, 0, 0);
 
         this.block = new Block(this, 0, 0, 1, 1);
-        Debug.Log(this.block);
 
-        Game.units[Game.unitsNum] = this;
-        id = Game.unitsNum;
-        Game.unitsNum += 1;
+        UnitList.Add(this);
     }
 
     ~Unit()
@@ -57,7 +53,6 @@ public class Unit : F2
 
     public override void Move(Vector2 vec2)
     {
-        //gameObj.transform.Translate(new Vector2(this.x,this.y));
         if (this.block.canMove(vec2))
         {
             this.x += vec2.x;
@@ -67,14 +62,16 @@ public class Unit : F2
     }
 
 
-    public override string getName() {
+    public override string getName()
+    {
         return this.name;
     }
 
-    static int unitNUm = 0;
     public string name;
     public Effect effect;
     public Block block;
     public Action action;
     public int id;
+
+    static public List<Unit> UnitList = new List<Unit>();
 }
