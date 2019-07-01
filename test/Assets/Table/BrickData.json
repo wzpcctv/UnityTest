@@ -1,0 +1,15 @@
+{
+	"BrickData": [{
+			"name": "地板001",
+			"spritePath": "bricks\\ground",
+			"blockable": true,
+			"blockWidth": 25600 ,
+			"blockHight": 3200
+		},
+		{
+			"name": "地板002",
+			"spritePath": "bricks\\ground",
+			"blockable": true
+		}
+	]
+}

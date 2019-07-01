@@ -5,16 +5,46 @@
       "hp": 1
     },
     {
-      "name": "农民",
-      "hp": 2,
+      "name": "英雄",
       "drop": [ "装备1", "装备2" ],
-      "spritePath": "units\\body"
+      "spritePath": "units\\body",
+      "blockUnit": 2,
+      "blockBrick": 2,
+      "hp": 10,
+      "mp": 10,
+      "atk": 10,
+      "def": 5,
+      "weapon" : "武器1"
+
+    },
+    {
+      "name": "农民",
+      "drop": [ "装备1", "装备2" ],
+      "spritePath": "units\\body2",
+      "blockUnit": 2,
+      "blockBrick": 2,
+      "hp": 10,
+      "mp": 10,
+      "atk": 10,
+      "def": 5
     },
     {
       "name": "脚男",
-      "hp": 5,
       "drop": [ "装备1" ],
-      "spritePath": "units\\body2"
+      "spritePath": "units\\body3",
+      "blockUnit": 2,
+      "blockBrick": 2,
+      "hp": 10,
+      "mp": 10,
+      "atk": 10,
+      "def": 5
+    },
+    {
+      "name": "子弹001",
+      "spritePath": "bullets\\bullet_001",
+      "blockUnit": 1,
+      "blockBrick": 0,
+      "fly": true
     }
   ]
 }
